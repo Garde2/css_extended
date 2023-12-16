@@ -67,6 +67,7 @@
         <div class="header_top_right">
           <a href="cart.html" class="header_top_right_basket">
             <svg
+              class="header_top_right_basket-img"
               width="32"
               height="29"
               viewBox="0 0 32 29"
@@ -82,6 +83,9 @@
           <a href="registration.html" class="header_top_right_button"
             >My Account<span class="header_top_right_button_icon"
               ><i class="fa-solid fa-caret-down"></i></span
+          ></a>
+          <a href="registration.html" class="header_top_right__account"
+            ><i class="fa-solid fa-user"></i
           ></a>
         </div>
       </div>
@@ -385,8 +389,8 @@
       </nav>
     </header>
     <main class="main center_full">
-      <div class="breadcrumbs">
-        <div class="breadcrumbs__title center_base">SHOPPING CART</div>
+      <div class="main-top-head center_base">
+        <h2 class="main-top-head__title">SHOPPING CART</h2>
       </div>
       <div class="cart-content center_base">
         <div class="cart-content__cart">
@@ -422,6 +426,7 @@
                         class="cart-content__input"
                         type="number"
                         value="2"
+                        min="0"
                       />
                     </p>
                   </li>
@@ -473,6 +478,7 @@
                         class="cart-content__input"
                         type="number"
                         value="2"
+                        min="0"
                       />
                     </p>
                   </li>
@@ -527,6 +533,8 @@
               </li>
             </ul>
             <a href="#" class="cart-content__quote-btn">GET A QUOTE</a>
+          </form>
+          <div class="cart-content__proceed-button">
             <div class="cart-content__total">
               <div class="cart-content__total-titles">
                 <div class="cart-content__total-subtitle">
@@ -547,7 +555,7 @@
                 >
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </main>

@@ -1,6 +1,7 @@
 @import "vars";
 @import "fonts";
 @import "positions";
+@import "media-tablet";
 
 %column_center {
   display: flex;
@@ -30,15 +31,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  /*
-  min-height: -webkit-fill-available;
-   */
 }
 
 html {
-  /*
-   min-height: -webkit-fill-available;
-   */
   scroll-behavior: smooth;
 }
 
@@ -52,6 +47,13 @@ a {
 
 ul {
   list-style-type: none;
+}
+
+summary {
+  display: block;
+}
+summary::-webkit-details-marker {
+  display: none;
 }
 
 .container {
@@ -185,6 +187,20 @@ ul {
       }
     }
   }
+}
+
+.header_top_right_basket-img {
+  transition: all 0.3s;
+}
+
+.header_top_right_basket-img:hover {
+  path {
+    fill: $baseSelectColor;
+  }
+}
+
+.header_top_right__account {
+  display: none;
 }
 
 .browse_menu {
@@ -334,8 +350,8 @@ ul {
   margin-bottom: 123px;
   &_head {
     display: flex;
-    //border-left: 12px solid $baseSelectColor;
     position: absolute;
+    padding-left: 14%;
     top: 40%;
     width: 100%;
     text-align: left;
@@ -356,6 +372,12 @@ ul {
     }
   }
 }
+.header-box {
+  width: 100%;
+}
+.main_top_img1 {
+  width: 100%;
+}
 
 .main-top-head {
   width: 100%;
@@ -365,12 +387,14 @@ ul {
   align-items: center;
   background-color: #f8f3f4;
   &__title {
+    padding-left: 3%;
     @include fontTitle(24px, normal, 400, $baseSelectColor);
   }
 }
 
 .breadcrumbs {
   display: flex;
+  margin-right: 3%;
   &__list {
     display: flex;
   }
@@ -391,14 +415,21 @@ ul {
     font-weight: 700;
     color: $baseSelectColor;
   }
+  &__item {
+    display: flex;
+  }
 }
 
 .filters-box {
+  display: flex;
+  justify-content: flex-start;
+  gap: 34%;
   width: 100%;
   padding-top: 39px;
-  padding-bottom: 64px;
+  padding-bottom: 51px;
   position: relative;
 }
+
 .filter {
   display: flex;
   justify-content: flex-start;
@@ -406,8 +437,7 @@ ul {
   &__details {
     position: absolute;
     width: 360px;
-    padding-top: 13px;
-    padding-left: 16px;
+    padding: 13px 16px;
     z-index: 2;
     &[open] {
       background: $baseBackgroundColor;
@@ -430,7 +460,69 @@ ul {
   &__details-item {
     margin-top: 16px;
   }
+  &__details-item[open] .filter__details-title {
+    color: $baseSelectColor;
+  }
+  &__details-box {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 24px 16px;
+  }
   &__details-title {
+    @include fontTitle(14px, normal, 400, #6f6e6e);
+    font-style: normal;
+    padding: 8px 11px 11px 11px;
+    border-bottom: 1px solid #ebebeb;
+    border-left: 5px solid $baseSelectColor;
+  }
+  &__details-link {
+    @include fontTitle(14px, normal, 400, #6f6e6e);
+    font-style: normal;
+    transition: all 0.3s;
+    &:hover {
+      color: $baseSelectColor;
+    }
+  }
+}
+
+.sort {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding-top: 13px;
+  position: relative;
+  &__details {
+    position: relative;
+  }
+  &__summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    @include fontTitle(14px, normal, 400, #6f6e6e);
+    font-style: normal;
+    transition: all 0.3s;
+  }
+  &__summary:hover {
+    color: $baseSelectColor;
+  }
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #fff;
+    box-shadow: 6px 4px 35px 0 rgba(0, 0, 0, 0.21);
+    padding: 7px 30px 11px 9px;
+    position: absolute;
+    left: -9px;
+    top: 22px;
+    z-index: 2;
+  }
+
+  &__check {
+    display: flex;
+    gap: 9px;
+    align-items: center;
     @include fontTitle(14px, normal, 400, #6f6e6e);
     font-style: normal;
   }
@@ -535,6 +627,7 @@ ul {
           height: 35px;
           border: 1px solid #eaeaea;
           background-color: #ffffff;
+          padding-left: 15px;
         }
         &_val {
           width: 144px;
@@ -578,11 +671,15 @@ ul {
   margin-bottom: 100px;
   gap: 20px;
   &_col {
+    width: 100%;
     @extend %column_center;
     &_item {
       display: flex;
       justify-content: center;
       position: relative;
+      &_img {
+        width: 100%;
+      }
       &_info {
         padding: 1rem 1rem 1rem 1rem;
         position: absolute;
@@ -620,17 +717,6 @@ ul {
   justify-content: center;
   gap: 30px;
   margin-bottom: 79px;
-}
-
-@supports (display: grid) {
-  .main_items {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 50% 50%;
-    grid-column-gap: 3%;
-    grid-row-gap: 4%;
-  }
 }
 
 .main_items {
@@ -690,17 +776,23 @@ ul {
     display: flex;
   }
 }
+.cards-box {
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-bottom: 20px;
+}
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 30px;
   margin-bottom: 29px;
+  max-width: $baseWidth;
   &__card {
     background-color: #f8f8f8;
     max-width: 360px;
     position: relative;
-    margin-bottom: 30px;
   }
   &__card:hover {
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
@@ -800,8 +892,10 @@ ul {
   justify-content: space-around;
   margin-bottom: 128px;
   width: 100%;
+  padding-top: 96px;
   &__cart {
     width: 68.4%;
+    padding-left: 1%;
   }
   &__list {
     display: flex;
@@ -842,7 +936,7 @@ ul {
   &__input {
     @include fontTitle(18px, normal, 400, #656565);
     font-style: normal;
-    width: 44px;
+    width: 60px;
     padding-left: 16px;
     margin-left: 24px;
     border: 1px solid #eaeaea;
@@ -880,6 +974,7 @@ ul {
   }
   &__checkout {
     width: 31.6%;
+    padding-right: 1%;
   }
   &__form {
     @extend %column_start;
@@ -1124,19 +1219,23 @@ ul {
 .main_features {
   margin-bottom: 97px;
   &_content {
+    width: 100%;
     background-color: #222224;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 36px;
+    gap: 2%;
     &_list {
+      width: 40%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-right: 30px;
       @extend %column_start;
       gap: 30px;
       &_item {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        margin-right: 43px;
         &_icon {
           margin-right: 34px;
         }
@@ -1152,6 +1251,14 @@ ul {
       }
     }
   }
+}
+
+.main_features_content_img-box {
+  width: 100%;
+}
+
+.main_features_content_img {
+  width: 100%;
 }
 
 .footer_top {
